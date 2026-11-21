@@ -1,0 +1,17 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EsBattagliaNavale.MainWindow"
+       Title="EsBattaglia Navale" Width="360" Height="520">
+
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnInsert" Content="Inserisci Navi" Click="OnClickInsert"/>
+            <Button x:Name="BtnGame" Content="Gioca" IsEnabled="False" Click="OnClickGame"/>
+        </StackPanel>
+
+        <ContentControl x:Name="AreaContenuto"/>
+    </StackPanel>
+</Window>
