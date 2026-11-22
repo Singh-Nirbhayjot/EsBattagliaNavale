@@ -8,38 +8,54 @@ namespace EsBattagliaNavale;
 
 public partial class MainWindow : Window
 {
-    private CCampo campo;
-    private Insert controlloInsert;
-    private Game controlloGame;
+    private CCampo campo = new CCampo();
+    private Insert? vistaInsert;
+    private Game? vistaGame;
+    private CControllerInsert? controllerInsert;
+    private CControllerGame? controllerGame;
 
     public MainWindow()
     {
         InitializeComponent();
-        campo = new CCampo();
     }
 
-    private void OnClickInsert(object sender, RoutedEventArgs e)
+    private void OnClickInsert(object? sender, RoutedEventArgs e)
     {
-        controlloInsert = new Insert(campo, this);
-        AreaContenuto.Content = controlloInsert;
+        if (vistaInsert == null)
+        {
+            vistaInsert = new Insert();
+            controllerInsert = new CControllerInsert(vistaInsert, campo);
+            controllerInsert.FlottaCompleta += AbilitaPartita;
+        }
+
+        AreaContenuto.Content = vistaInsert;
     }
 
-    private void OnClickGame(object sender, RoutedEventArgs e)
+    private void OnClickGame(object? sender, RoutedEventArgs e)
     {
-        controlloGame = new Game(campo, this);
-        AreaContenuto.Content = controlloGame;
+        if (vistaGame == null)
+        {
+            vistaGame = new Game();
+            controllerGame = new CControllerGame(vistaGame, campo);
+            controllerGame.RichiestaReset += ResetPartita;
+        }
+
+        AreaContenuto.Content = vistaGame;
     }
-    public void AbilitaGioco()
+
+    private void AbilitaPartita()
     {
-        BtnInsert.IsEnabled = false;
         BtnGame.IsEnabled = true;
-        AreaContenuto.Content = null;
     }
-    public void PartitaVinta()
+
+    private void ResetPartita()
     {
-        BtnInsert.IsEnabled = true;
+        campo = new CCampo();
+        vistaInsert = null;
+        vistaGame = null;
+        controllerInsert = null;
+        controllerGame = null;
         BtnGame.IsEnabled = false;
         AreaContenuto.Content = null;
-        campo = new CCampo();
     }
 }

@@ -4,12 +4,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="EsBattagliaNavale.MainWindow"
-       Title="EsBattaglia Navale" Width="360" Height="520">
+       Title="EsBattaglia Navale" Width="380" Height="560">
 
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
+    <StackPanel Margin="10" Spacing="10">
+        <StackPanel Orientation="Horizontal" Spacing="10">
             <Button x:Name="BtnInsert" Content="Inserisci Navi" Click="OnClickInsert"/>
-            <Button x:Name="BtnGame" Content="Gioca" IsEnabled="False" Click="OnClickGame"/>
+            <Button x:Name="BtnGame" Content="Avvia Partita" IsEnabled="False" Click="OnClickGame"/>
         </StackPanel>
 
         <ContentControl x:Name="AreaContenuto"/>

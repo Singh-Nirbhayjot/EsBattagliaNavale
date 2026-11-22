@@ -9,5 +9,9 @@ namespace EsBattagliaNavale
         public CAcqua(int riga, int colonna) : base(riga, colonna)
         {
         }
+        public override string Colpito()
+        {
+            return "Acqua !!";
+        }
     }
 }

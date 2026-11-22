@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="EsBattagliaNavale.Game">
-            
-     <StackPanel>
+     <StackPanel Margin="10" Spacing="5">
         <TextBlock x:Name="TxtMosse" Text="Mosse: 0"/>
-        <TextBlock x:Name="TxtRisultato" Text="Colpiti: 0 / 15"/>
+        <TextBlock x:Name="TxtNavi" Text="Navi non affondate: 6"/>
         <UniformGrid x:Name="GrigliaCampo" Rows="10" Columns="10" Width="300" Height="300"/>
         <TextBox x:Name="TxtLog" Height="100" IsReadOnly="True" AcceptsReturn="True"/>
+        <Button x:Name="BtnReset" Content="Reset Nuova Partita" IsVisible="False" Click="OnClickReset"/>
     </StackPanel>
 
 </UserControl>
